@@ -8,6 +8,7 @@ app = Flask(__name__)
 app.config.from_object("config")
 
 
+# 默认展示
 @app.route('/')
 def hello_world():
     return 'Hello World!'
@@ -29,6 +30,7 @@ def index():
                            posts = posts)
 
 
+# 跳转到登录页面
 @app.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
