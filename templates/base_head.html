@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     {% if title %}
+    <title>{{title}} - microblog</title>
+    {% else %}
+    <title>welcome to microblog</title>
+    {% endif %}
+</head>
+<body>
+    <div>MIcroblog: <a href="/index">Home</a></div>
+    <hr>
+    {# 添加message输出 #}
+    {% with messages = get_flashed_messages() %}
+    {% if messges %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+    {# 使用block控制语句来定义派生模板可以插入的地方，快被赋予唯一的名字   #}
+    {% block content %} {% endblock %}
+</body>
+</html>

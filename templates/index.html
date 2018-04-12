@@ -1,0 +1,10 @@
+{# 把base_head模板文件引进来 #}
+{% extends "base_head.html" %}
+{# 在block 块中插入自定义的内容 #}
+{% block content %}
+    <h2>python flask study</h2>
+    <h2>hello,{{ user.nickname }}!</h2>
+    {% for post in posts %}
+    <P>{{ post.author.nickname }}&nbsp;&nbsp;<b>{{ post.body }}</b></P>
+    {% endfor %}
+{% endblock %}
